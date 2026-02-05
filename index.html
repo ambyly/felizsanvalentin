@@ -76,15 +76,9 @@
 <body>
 
   <!-- 🎵 MÚSICA -->
-  <iframe
-    id="music"
-    class="hidden"
-    width="0"
-    height="0"
-    src="https://www.youtube.com/embed/1xDgQ5a5W9k?enablejsapi=1&loop=1&playlist=1xDgQ5a5W9k"
-    frameborder="0"
-    allow="autoplay"
-  ></iframe>
+  <audio id="music" loop>
+  <source src="for-two-chevy.mp3" type="audio/mpeg">
+</audio>
 
   <!-- 🔒 PANTALLA BLOQUEADA -->
   <div class="card" id="lockScreen">
@@ -143,25 +137,26 @@
 
   <script>
     function unlock() {
-      document.getElementById("lockScreen").classList.add("hidden");
-      document.getElementById("content").classList.remove("hidden");
-      document.getElementById("music").classList.remove("hidden");
-      calculateDays();
-    }
+    document.getElementById("lockScreen").classList.add("hidden");
+    document.getElementById("content").classList.remove("hidden");
 
-    function calculateDays() {
-      // 📅 05 de septiembre de 2025
-      const startDate = new Date(2025, 8, 5);
-      const today = new Date();
+    const music = document.getElementById("music");
+    music.play();
 
-      const diffTime = today - startDate;
-      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    calculateDays();
+  }
 
-      document.getElementById("daysTogether").textContent = diffDays;
-    }
+  function calculateDays() {
+    const startDate = new Date(2025, 8, 5);
+    const today = new Date();
+    const diffTime = today - startDate;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    document.getElementById("daysTogether").textContent = diffDays;
+  }
   </script>
 
 </body>
 </html>
+
 
 
