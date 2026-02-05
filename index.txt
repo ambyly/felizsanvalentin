@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Awiwi 💘</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #5a2a2a;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      padding: 30px;
+      max-width: 460px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      animation: fadeIn 1.2s ease;
+    }
+
+    img {
+      width: 100%;
+      max-height: 260px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      background: #ff5e78;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    button:hover {
+      background: #ff3f5f;
+      transform: scale(1.05);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .counter {
+      margin: 20px 0;
+      font-size: 18px;
+      background: #ffe4ea;
+      padding: 12px;
+      border-radius: 15px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🎵 MÚSICA -->
+  <iframe
+    id="music"
+    class="hidden"
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/1xDgQ5a5W9k?enablejsapi=1&loop=1&playlist=1xDgQ5a5W9k"
+    frameborder="0"
+    allow="autoplay"
+  ></iframe>
+
+  <!-- 🔒 PANTALLA BLOQUEADA -->
+  <div class="card" id="lockScreen">
+    <h1>💝 Para Awiwi</h1>
+    <p>
+      Esta página guarda algo que hice  
+      con todo mi amor, solo para vos.
+    </p>
+    <button onclick="unlock()">Desbloquear 💖</button>
+  </div>
+
+  <!-- 💖 CONTENIDO -->
+  <div class="card hidden" id="content">
+
+    <!-- 🖼️ IMAGEN -->
+    <img src="awiwilove.jpg" alt="Algo suave y bonito, como nosotros">
+
+    <h1>Feliz San Valentín, Awiwi 💘</h1>
+
+    <div class="counter">
+      ⏳ Llevamos <strong><span id="daysTogether"></span></strong> días  
+      desde que empezamos a hablar más íntimo 💞
+    </div>
+
+    <p>
+      Te amo, Awiwi.<br><br>
+
+      Me encanta haberte conocido,
+      y no es una frase más.
+      Desde antes de hablarte ya tenía ganas de hacerlo,
+      desde que me hablaban de vos algo en mí ya se estaba moviendo.<br><br>
+
+      No me arrepiento ni un segundo de haberte escrito.
+      Desde el día uno estaba completamente ilusionada con vos,
+      con tu forma de ser,
+      con lo que despertás en mí sin darte cuenta.<br><br>
+
+      Con el tiempo entendí que no era solo ilusión.
+      Era amor creciendo despacio,
+      era sentirme tranquila,
+      cuidada,
+      elegida,
+      incluso a la distancia.<br><br>
+
+      Te amo por quien sos,
+      por cómo me hablás,
+      por cómo me acompañás,
+      y por la persona que elegís ser cada día.<br><br>
+
+      Te elijo hoy,
+      y te volvería a elegir mil veces más.
+    </p>
+
+    <p><strong>Con todo mi amor 💖</strong></p>
+  </div>
+
+  <script>
+    function unlock() {
+      document.getElementById("lockScreen").classList.add("hidden");
+      document.getElementById("content").classList.remove("hidden");
+      document.getElementById("music").classList.remove("hidden");
+      calculateDays();
+    }
+
+    function calculateDays() {
+      // 📅 05 de septiembre de 2025
+      const startDate = new Date(2025, 8, 5);
+      const today = new Date();
+
+      const diffTime = today - startDate;
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+      document.getElementById("daysTogether").textContent = diffDays;
+    }
+  </script>
+
+</body>
+</html>
