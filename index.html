@@ -15,18 +15,19 @@
   margin: 0;
   font-family: 'Georgia', serif;
   background: linear-gradient(180deg, #ffdde1, #ee9ca7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
   color: #5a2a2a;
 }
-    <div id="saludo"></div>
  
 
     .card {
 background: white;
-  padding: 30px;
-  max-width: 760px;
+  padding: 40px;
+  max-width: 800px;
   width: 90%;
-  margin: 60px auto;   /* ← ESTO es la clave */
   border-radius: 25px;
   box-shadow: 0 15px 35px rgba(0,0,0,0.25);
   text-align: center;
@@ -75,10 +76,6 @@ background: white;
       border-radius: 15px;
     }
 
-    @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
 
 /* 🌸 ANIMACIONES SUAVES */
 .card {
@@ -95,32 +92,32 @@ img {
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeInText {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+      opacity: 0;
+      transform: translateY(25px);
     }
-  </style>
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeInText {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
 </head>
 
 <body>
@@ -220,6 +217,7 @@ saludoHora();
 
 </body>
 </html>
+
 
 
 
