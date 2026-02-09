@@ -3,7 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Para Awiwi 💘</title>
+  
+ 
   <style>
+    #saludo {
+  color: #e91e63;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
     body {
       margin: 0;
       font-family: 'Georgia', serif;
@@ -14,6 +21,8 @@
       min-height: 100vh;
       color: #5a2a2a;
     }
+    <div id="saludo"></div>
+ 
 
     .card {
       background: rgba(255, 255, 255, 0.92);
@@ -72,8 +81,49 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* 🌸 ANIMACIONES SUAVES */
+.card {
+  animation: fadeUp 1.4s ease-out forwards;
+}
+img {
+  animation: fadeIn 1.8s ease-out forwards;
+}
+
+.texto {
+  animation: fadeInText 2.2s ease-out forwards;
+  animation-delay: 0.4s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
     }
   </style>
 </head>
@@ -97,6 +147,7 @@
 
   <!-- 💖 CONTENIDO -->
   <div class="card hidden" id="content">
+    <div id="saludo" class="texto"></div>
 
     <!-- 🖼️ IMAGEN -->
     <img src="awiwilove.jpg" alt="Algo suave y bonito, como nosotros">
@@ -158,10 +209,22 @@
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
     document.getElementById("daysTogether").textContent = diffDays;
   }
+    function saludoHora() {
+  const h = new Date().getHours();
+  let texto = "Te amo 🤍";
+
+  if (h >= 6 && h < 12) texto = "Buenos días, amor ☀️";
+  else if (h >= 12 && h < 19) texto = "Espero que estés sonriendo 💕";
+  else texto = "Buenas noches, ojalá abrazarte 🌙";
+
+  document.getElementById("saludo").innerText = texto;
+}
+saludoHora();
   </script>
 
 </body>
 </html>
+
 
 
 
