@@ -116,7 +116,22 @@ img {
       opacity: 1;
       transform: translateY(0);
     }
+    .texto-lento {
+  opacity: 0;
+  animation: aparecerTexto 3s ease forwards;
+  animation-delay: 1s;
+}
+
+@keyframes aparecerTexto {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 </style>
 </head>
 
@@ -152,7 +167,7 @@ img {
       desde que empezamos a hablar más. 💞
     </div>
 
-    <p>
+    <p class="texto-lento">
       Te amo, Mauricio.<br><br>
 
       Me encanta haberte conocido,
@@ -217,6 +232,7 @@ saludoHora();
 
 </body>
 </html>
+
 
 
 
