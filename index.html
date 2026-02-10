@@ -39,7 +39,7 @@ h1{margin-top:0;}
 }
 
 button{
-  padding:14px 28px;
+  padding:14px 30px;
   border:none;
   border-radius:30px;
   background:#ff5e78;
@@ -54,22 +54,31 @@ button:hover{
   transform:scale(1.05);
 }
 
+/* saludo */
+#saludo{
+  color:#e91e63;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
 /* imagen principal */
-img.main-img{
+.main-img{
   width:100%;
   max-height:70vh;
   object-fit:contain;
   border-radius:20px;
   margin:25px 0;
   opacity:0;
-  animation:fadeIn 1.5s ease forwards;
+  animation:fadeIn 1.6s ease forwards;
 }
 
-/* saludo */
-#saludo{
-  color:#e91e63;
-  font-weight:bold;
-  margin-bottom:10px;
+/* contador bonito */
+.counter{
+  margin:20px 0;
+  font-size:18px;
+  background:#ffe4ea;
+  padding:14px;
+  border-radius:18px;
 }
 
 /* texto secuencial */
@@ -131,7 +140,10 @@ img.main-img{
 <!-- PANTALLA INICIAL -->
 <div class="card" id="lockScreen">
   <h1>Para Awiwi</h1>
-  <p>Esta página guarda algo que hice con todo mi amor.<br>¿Quieres ver?</p>
+  <p>
+    Esta página guarda algo que hice con todo mi amor.<br>
+    ¿Quieres ver?
+  </p>
 
   <div class="buttons">
     <button onclick="unlock()">Por supuesto</button>
@@ -144,38 +156,51 @@ img.main-img{
 
   <div id="saludo"></div>
 
-  <img src="awiwilove.jpg" class="main-img" alt="nosotros">
+  <img src="awiwilove.jpg" class="main-img" alt="Algo suave y bonito, como nosotros">
 
   <h1>Feliz San Valentín, Mauricio</h1>
 
   <div class="counter">
-    Llevamos <strong><span id="daysTogether"></span></strong> días desde que empezamos a hablar más.
+    Llevamos <strong><span id="daysTogether"></span></strong> días
+    desde que empezamos a hablar más.
   </div>
 
-  <p class="parrafo">Te amo, Mauricio.</p>
+  <p class="parrafo">
+    Te amo, Mauricio.
+  </p>
 
   <p class="parrafo">
     Me encanta haberte conocido, y no es una frase más.
-    Desde antes de hablarte ya tenía ganas de hacerlo.
+    Desde antes de hablarte ya tenía ganas de hacerlo,
+    desde que me hablaban de ti algo en mí ya se estaba moviendo.
   </p>
 
   <p class="parrafo">
     No me arrepiento ni un segundo de haberte escrito.
-    Desde el día uno estaba completamente ilusionada contigo.
+    Desde el día uno estaba completamente ilusionada contigo,
+    con tu forma de ser,
+    con lo que despertaste en mí sin darte cuenta.
   </p>
 
   <p class="parrafo">
     Con el tiempo entendí que no era solo ilusión.
-    Era amor creciendo despacio.
+    Era amor creciendo despacio,
+    era sentirme tranquila,
+    cuidada,
+    elegida,
+    incluso a la distancia.
   </p>
 
   <p class="parrafo">
-    Te amo por quien eres, por cómo me hablas
+    Te amo por quien eres,
+    por cómo me hablas,
+    por cómo me acompañas,
     y por la persona que eliges ser cada día.
   </p>
 
   <p class="parrafo">
-    Te elijo hoy, y te volvería a elegir mil veces más.
+    Te elijo hoy,
+    y te volvería a elegir mil veces más.
   </p>
 
   <p class="parrafo"><strong>Con todo mi amor</strong></p>
@@ -200,7 +225,6 @@ function noAction(){
     overlay.className = "fullscreen-img";
     overlay.innerHTML = `<img src="robot.jpg">`;
     document.body.appendChild(overlay);
-
     setTimeout(()=>overlay.remove(),2000);
   } else {
     moveButton();
@@ -210,8 +234,8 @@ function noAction(){
 function moveButton(){
   const btn = document.getElementById("noBtn");
   btn.classList.add("moving");
-  btn.style.left = (Math.random()*200-100)+"px";
-  btn.style.top  = (Math.random()*200-100)+"px";
+  btn.style.left = (Math.random()*220-110)+"px";
+  btn.style.top  = (Math.random()*220-110)+"px";
 }
 
 function calculateDays(){
@@ -226,13 +250,14 @@ function saludoHora(){
   let t="Te amo";
   if(h>=6&&h<12) t="Buenos días, amor";
   else if(h>=12&&h<19) t="Espero que estés sonriendo";
-  else t="Buenas noches";
+  else t="Buenas noches, ojalá abrazarte";
   document.getElementById("saludo").innerText=t;
 }
 </script>
 
 </body>
 </html>
+
 
 
 
