@@ -3,48 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>Para Awiwi 💘</title>
-  
- 
+
   <style>
-    #saludo {
-  color: #e91e63;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
     body {
-  margin: 0;
-  font-family: 'Georgia', serif;
-  background: linear-gradient(180deg, #ffdde1, #ee9ca7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  color: #5a2a2a;
-}
- 
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(180deg, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #5a2a2a;
+    }
 
     .card {
-background: white;
-  padding: 40px;
-  max-width: 800px;
-  width: 90%;
-  border-radius: 25px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-  text-align: center;
-}
+      background: white;
+      padding: 40px;
+      max-width: 800px;
+      width: 90%;
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+      text-align: center;
+      animation: fadeUp 1.4s ease-out forwards;
+    }
 
     img {
       width: 100%;
-      max-height: none;
       height: auto;
       object-fit: contain;
       border-radius: 15px;
-      margin: 15px 0;
+      margin: 20px 0;
       display: block;
+      animation: fadeIn 1.8s ease-out forwards;
     }
 
     h1 {
-      margin-top: 0;
+      margin-top: 10px;
     }
 
     button {
@@ -76,71 +70,55 @@ background: white;
       border-radius: 15px;
     }
 
+    #saludo {
+      color: #e91e63;
+      font-weight: bold;
+      margin-bottom: 10px;
+      animation: fadeInText 2s ease forwards;
+    }
 
-/* 🌸 ANIMACIONES SUAVES */
-.card {
-  animation: fadeUp 1.4s ease-out forwards;
-}
-img {
-  animation: fadeIn 1.8s ease-out forwards;
-}
+    /* 🌸 ANIMACIONES */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-.texto {
-  animation: fadeInText 2.2s ease-out forwards;
-  animation-delay: 0.4s;
-  animation-fill-mode: both;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-@keyframes fadeUp {
-    from {
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 📜 TEXTO QUE APARECE DESPUÉS DE LA IMAGEN */
+    .texto-cartita .parrafo {
       opacity: 0;
-      transform: translateY(25px);
+      animation: aparecer 1.4s ease forwards;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
+    .texto-cartita .parrafo:nth-of-type(1) { animation-delay: 2.5s; }
+    .texto-cartita .parrafo:nth-of-type(2) { animation-delay: 4s; }
+    .texto-cartita .parrafo:nth-of-type(3) { animation-delay: 5.5s; }
+    .texto-cartita .parrafo:nth-of-type(4) { animation-delay: 7s; }
+    .texto-cartita .parrafo:nth-of-type(5) { animation-delay: 8.5s; }
+    .texto-cartita .parrafo:nth-of-type(6) { animation-delay: 10s; }
 
-  @keyframes fadeInText {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .texto-lento {
-  opacity: 0;
-  animation: aparecerTexto 3s ease forwards;
-  animation-delay: 1s;
-}
-
-@keyframes aparecerTexto {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-</style>
+  </style>
 </head>
 
 <body>
 
   <!-- 🎵 MÚSICA -->
   <audio id="music" loop>
-  <source src="for-two-chevy.mp3" type="audio/mpeg">
-</audio>
+    <source src="for-two-chevy.mp3" type="audio/mpeg">
+  </audio>
 
   <!-- 🔒 PANTALLA BLOQUEADA -->
   <div class="card" id="lockScreen">
@@ -148,6 +126,7 @@ img {
     <p>
       Esta página guarda algo que hice  
       con todo mi amor, solo para ti.
+      <br><br>
       ¿Quieres ver?
     </p>
     <button onclick="unlock()">Desbloquear 💖</button>
@@ -155,84 +134,89 @@ img {
 
   <!-- 💖 CONTENIDO -->
   <div class="card hidden" id="content">
-    <div id="saludo" class="texto"></div>
 
-    <!-- 🖼️ IMAGEN -->
+    <div id="saludo"></div>
+
     <img src="awiwilove.jpg" alt="Algo suave y bonito, como nosotros">
 
     <h1>Feliz San Valentín, Mauricio 💘</h1>
 
     <div class="counter">
       ⏳ Llevamos <strong><span id="daysTogether"></span></strong> días  
-      desde que empezamos a hablar más. 💞
+      desde que empezamos a hablar más 💞
     </div>
 
-    <p class="texto-lento">
-      Te amo, Mauricio.<br><br>
+    <div class="texto-cartita">
+      <p class="parrafo">Te amo, Mauricio.</p>
 
-      Me encanta haberte conocido,
-      y no es una frase más.
-      Desde antes de hablarte ya tenía ganas de hacerlo,
-      desde que me hablaban de ti algo en mí ya se estaba moviendo.<br><br>
+      <p class="parrafo">
+        Me encanta haberte conocido, y no es una frase más.
+        Desde antes de hablarte ya tenía ganas de hacerlo,
+        desde que me hablaban de ti algo en mí ya se estaba moviendo.
+      </p>
 
-      No me arrepiento ni un segundo de haberte escrito.
-      Desde el día uno estaba completamente ilusionada contigo,
-      con tu forma de ser,
-      con lo que despertaste en mí sin darte cuenta.<br><br>
+      <p class="parrafo">
+        No me arrepiento ni un segundo de haberte escrito.
+        Desde el día uno estaba completamente ilusionada contigo,
+        con tu forma de ser, con lo que despertaste en mí sin darte cuenta.
+      </p>
 
-      Con el tiempo entendí que no era solo ilusión.
-      Era amor creciendo despacio,
-      era sentirme tranquila,
-      cuidada,
-      elegida,
-      incluso a la distancia.<br><br>
+      <p class="parrafo">
+        Con el tiempo entendí que no era solo ilusión.
+        Era amor creciendo despacio,
+        era sentirme tranquila, cuidada, elegida,
+        incluso a la distancia.
+      </p>
 
-      Te amo por quien eres,
-      por cómo me hablas,
-      por cómo me acompañas,
-      y por la persona que eliges ser cada día.<br><br>
+      <p class="parrafo">
+        Te amo por quien eres,
+        por cómo me hablas,
+        por cómo me acompañas,
+        y por la persona que eliges ser cada día.
+      </p>
 
-      Te elijo hoy,
-      y te volvería a elegir mil veces más. Una y mil veces
-    </p>
+      <p class="parrafo">
+        Te elijo hoy,
+        y te volvería a elegir mil veces más.
+      </p>
+    </div>
 
     <p><strong>Con todo mi amor 💖</strong></p>
   </div>
 
   <script>
     function unlock() {
-    document.getElementById("lockScreen").classList.add("hidden");
-    document.getElementById("content").classList.remove("hidden");
+      document.getElementById("lockScreen").classList.add("hidden");
+      document.getElementById("content").classList.remove("hidden");
 
-    const music = document.getElementById("music");
-    music.play();
+      document.getElementById("music").play();
+      calculateDays();
+    }
 
-    calculateDays();
-  }
+    function calculateDays() {
+      const startDate = new Date(2025, 8, 5);
+      const today = new Date();
+      const diffTime = today - startDate;
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      document.getElementById("daysTogether").textContent = diffDays;
+    }
 
-  function calculateDays() {
-    const startDate = new Date(2025, 8, 5);
-    const today = new Date();
-    const diffTime = today - startDate;
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-    document.getElementById("daysTogether").textContent = diffDays;
-  }
     function saludoHora() {
-  const h = new Date().getHours();
-  let texto = "Te amo 🤍";
+      const h = new Date().getHours();
+      let texto = "Te amo 🤍";
 
-  if (h >= 6 && h < 12) texto = "Buenos días, amor ☀️";
-  else if (h >= 12 && h < 19) texto = "Espero que estés sonriendo 💕";
-  else texto = "Buenas noches, ojalá abrazarte 🌙";
+      if (h >= 6 && h < 12) texto = "Buenos días, amor ☀️";
+      else if (h >= 12 && h < 19) texto = "Espero que estés sonriendo 💕";
+      else texto = "Buenas noches, ojalá abrazarte 🌙";
 
-  document.getElementById("saludo").innerText = texto;
-}
-saludoHora();
+      document.getElementById("saludo").innerText = texto;
+    }
+
+    saludoHora();
   </script>
 
 </body>
 </html>
-
 
 
 
